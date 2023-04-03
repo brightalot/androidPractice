@@ -4,8 +4,6 @@ import android.graphics.fonts.FontStyle
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -16,13 +14,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.composepractice2.ui.theme.ComposePractice2Theme
 import androidx.compose.ui.res.stringResource
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.intellij.lang.annotations.JdkConstants.TitledBorderJustification
-import java.time.format.TextStyle
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +31,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    TaskManagerWithImage("Android")
+                    TaskManagerWithGenerate(body1 = stringResource(R.string.body_1),
+                        body2 = stringResource(R.string.body_2))
                 }
             }
         }
@@ -42,15 +40,25 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun TaskManagerWithText(body1: String, body2: String, modifier: Modifier = Modifier) {
+fun TaskManagerWithGenerate(body1: String, body2: String, modifier: Modifier = Modifier) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
+        val image = painterResource(R.drawable.ic_task_completed)
+        Image(
+            painter = image,
+            contentDescription = null,
+            contentScale = ContentScale.None
+        )
         Text(
             text = body1,
-            fontSize = 24.dp,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(top = 24.dp, bottom = 8.dp)
+            modifier = Modifier
+                .padding(top = 24.dp, bottom = 8.dp)
         )
         Text(
             text = body2,
@@ -62,10 +70,12 @@ fun TaskManagerWithText(body1: String, body2: String, modifier: Modifier = Modif
 
 }
 
+
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     ComposePractice2Theme {
-        Greeting("Android")
+        TaskManagerWithGenerate(body1 = stringResource(R.string.body_1),
+            body2 = stringResource(R.string.body_2))
     }
 }
