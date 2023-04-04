@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.sp
 import com.example.composepractice1.ui.theme.ComposePractice1Theme
 import androidx.compose.ui.res.stringResource
 import androidx.compose.foundation.Image
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.style.TextAlign
 import org.intellij.lang.annotations.JdkConstants.TitledBorderJustification
 
@@ -33,8 +34,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                TutorialWithImage(stringResource(R.string.Title_Text), 
-                    stringResource(R.string.Body1_Text), stringResource(R.string.Body2_Text))
+                    TutorialGenerator()
                 }
             }
         }
@@ -42,26 +42,31 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun TutorialWithText( Title: String, Body1: String, Body2: String, modifier: Modifier = Modifier) {
+fun TutorialResource(
+    title: String,
+    body1: String,
+    body2: String,
+    image: Painter,
+    modifier: Modifier = Modifier
+) {
     Column(
         modifier = modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.Start
     ) {
+        Image(painter = image, contentDescription = null)
         Text(
-            text = Title,
+            text = title,
             fontSize = 24.sp,
             modifier = Modifier
                 .padding(16.dp)
         )
         Text(
-            text = Body1,
+            text = body1,
             modifier = Modifier
                 .padding(start = 16.dp, end = 16.dp),
             textAlign = TextAlign.Justify
         )
         Text(
-            text = Body2,
+            text = body2,
             modifier = Modifier
                 .padding(16.dp),
             textAlign = TextAlign.Justify
@@ -71,23 +76,19 @@ fun TutorialWithText( Title: String, Body1: String, Body2: String, modifier: Mod
     }
 }
 @Composable
-fun TutorialWithImage(TItle: String, Body1: String, Body2: String, modifier: Modifier = Modifier) {
-    val image = painterResource(R.drawable.bg_compose_background)
-    Column {
-        Image(
-            painter = image,
-            contentDescription = null,
-            contentScale = ContentScale.Fit
-        )
-        TutorialWithText(Title = TItle, Body1 = Body1, Body2 = Body2, modifier = modifier)
-    }
+fun TutorialGenerator() {
+    TutorialResource(
+        title = stringResource(R.string.Title_Text),
+        body1 = stringResource(R.string.Body1_Text),
+        body2 = stringResource(R.string.Body2_Text),
+        image = painterResource(R.drawable.bg_compose_background)
+    )
 }
 @Preview(showBackground = false)
 @Composable
 private fun TutorialPreview() {
     ComposePractice1Theme() {
-        TutorialWithImage(stringResource(R.string.Title_Text), stringResource(R.string.Body1_Text),
-        stringResource(R.string.Body2_Text))
+        TutorialGenerator()
     }
 }
 
