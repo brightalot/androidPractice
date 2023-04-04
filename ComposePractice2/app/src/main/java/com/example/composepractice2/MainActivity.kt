@@ -31,8 +31,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    TaskManagerWithGenerate(body1 = stringResource(R.string.body_1),
-                        body2 = stringResource(R.string.body_2))
+                    TaskManagerWithGenerate()
+
                 }
             }
         }
@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun TaskManagerWithGenerate(body1: String, body2: String, modifier: Modifier = Modifier) {
+private fun TaskManagerWithGenerate() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -52,16 +52,15 @@ fun TaskManagerWithGenerate(body1: String, body2: String, modifier: Modifier = M
         Image(
             painter = image,
             contentDescription = null,
-            contentScale = ContentScale.None
         )
         Text(
-            text = body1,
+            text = stringResource(R.string.body_1),
             fontWeight = FontWeight.Bold,
             modifier = Modifier
                 .padding(top = 24.dp, bottom = 8.dp)
         )
         Text(
-            text = body2,
+            text = stringResource(R.string.body_2),
             fontSize = 16.sp
         )
 
@@ -75,7 +74,6 @@ fun TaskManagerWithGenerate(body1: String, body2: String, modifier: Modifier = M
 @Composable
 fun DefaultPreview() {
     ComposePractice2Theme {
-        TaskManagerWithGenerate(body1 = stringResource(R.string.body_1),
-            body2 = stringResource(R.string.body_2))
+        TaskManagerWithGenerate()
     }
 }
