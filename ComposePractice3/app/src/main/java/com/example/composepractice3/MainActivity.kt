@@ -41,11 +41,11 @@ fun QuadrantGenerator() {
         Row(
             modifier = Modifier.weight(1f)
         ) {
-            QudrantText(title = stringResource(R.string.second_quadrant_title),
+            QuadrantText(title = stringResource(R.string.second_quadrant_title),
                 body = stringResource(R.string.second_quadrant_body),
                 color = androidx.compose.ui.graphics.Color.Green,
                 modifier = Modifier.weight(1f))
-            QudrantText(title = stringResource(R.string.first_quadrant_title),
+            QuadrantText(title = stringResource(R.string.first_quadrant_title),
                 body = stringResource(R.string.first_quadrant_body),
                 color = androidx.compose.ui.graphics.Color.Yellow,
                 modifier = Modifier.weight(1f))
@@ -54,11 +54,11 @@ fun QuadrantGenerator() {
         Row(
             modifier = Modifier.weight(1f)
         ) {
-            QudrantText(title = stringResource(R.string.third_quadrant_title),
+            QuadrantText(title = stringResource(R.string.third_quadrant_title),
                 body = stringResource(R.string.third_quadrant_body),
                 color = androidx.compose.ui.graphics.Color.Cyan,
                 modifier = Modifier.weight(1f))
-            QudrantText(title = stringResource(R.string.fourth_quadrant_title),
+            QuadrantText(title = stringResource(R.string.fourth_quadrant_title),
                 body = stringResource(R.string.fourth_quadrant_body),
                 color = androidx.compose.ui.graphics.Color.LightGray,
                 modifier = Modifier.weight(1f))
@@ -67,7 +67,7 @@ fun QuadrantGenerator() {
 }
 
 @Composable
-private fun QudrantText (title: String, body: String, color: Color, modifier: Modifier = Modifier) {
+private fun QuadrantText (title: String, body: String, color: Color, modifier: Modifier = Modifier) {
     Column (
         modifier = modifier
             .fillMaxSize()
