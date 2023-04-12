@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    배경색상-->
+<!--    <solid android:color="#7EF192"/>-->
+
+<!--    그라데이션-->
+    <gradient
+        android:type="linear"
+        android:angle="45"
+        android:startColor="#76E17B"
+        android:endColor="#40C5B8" />
+<!--윤곽선-->
+<!--    <stroke android:width="3dp"-->
+<!--        android:color="#F44336" />-->
+
+<!--    패딩-->
+    <padding android:left="10dp"
+        android:top="10dp"
+        android:right="10dp"
+        android:bottom="10dp" />
+
+    <corners android:radius="30dp" />
+</shape>
