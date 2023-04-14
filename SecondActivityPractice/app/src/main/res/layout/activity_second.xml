@@ -4,15 +4,33 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity">
+    tools:context=".SecondActivity"
+    android:weightSum="1"
+    >
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:gravity="center"
         android:textColor="@color/black"
-        android:text="second_activity_title"/>
-
+        android:text="this is second_activity"
+        android:paddingTop="50dp"
+        />
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        />
+    <Button
+        android:id="@+id/secondButton"
+        android:paddingHorizontal="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="go to MainActivity"
+        android:textSize="20dp"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        />
 </LinearLayout>
