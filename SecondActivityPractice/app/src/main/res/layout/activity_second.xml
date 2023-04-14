@@ -15,7 +15,7 @@
         android:textSize="30sp"
         android:gravity="center"
         android:textColor="@color/black"
-        android:text="this is second_activity"
+        android:text="this is Second Activity"
         android:paddingTop="50dp"
         />
     <Space
@@ -30,6 +30,7 @@
         android:layout_gravity="center"
         android:textSize="20sp"
         android:text="  "
+        android:layout_marginBottom="100dp"
         />
     <Button
         android:id="@+id/secondButton"

@@ -21,8 +21,10 @@ class SecondActivity : AppCompatActivity() {
 
         binding.secondButton.setOnClickListener {
             // 버튼을 눌렀을 때 실행될 코드
+
             val second_intent = Intent(this@SecondActivity, MainActivity::class.java)
             startActivity(second_intent)
+            finish()
         }
     }
 }

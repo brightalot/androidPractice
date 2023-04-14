@@ -38,20 +38,13 @@
             android:id="@+id/edit_text_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="입력"
-            android:layout_alignEnd="@+id/sample_edittext"
-            android:layout_centerInParent="true"
             android:layout_alignTop="@+id/sample_edittext"
-            />
+            android:layout_alignEnd="@+id/sample_edittext"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="입력" />
 
     </LinearLayout>
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:text="Go to Second Activity" />
+
 
 </RelativeLayout>
