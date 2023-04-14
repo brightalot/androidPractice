@@ -23,6 +23,14 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.5"
         />
+    <TextView
+        android:id="@+id/user_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:text="  "
+        />
     <Button
         android:id="@+id/secondButton"
         android:paddingHorizontal="50dp"

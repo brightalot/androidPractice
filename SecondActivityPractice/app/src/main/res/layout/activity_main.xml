@@ -10,9 +10,41 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Hello World!" />
+        android:layout_centerHorizontal="true"
+        android:text="This is Main Activity!"
+        android:layout_marginTop="50dp"
+        />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        >
+        <EditText
+            android:id="@+id/sample_edittext"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/textView"
+
+            android:ems="10"
+            android:hint="아무거나 작성하세요"
+            android:inputType="text"
+            android:layout_marginBottom="50dp"
+            android:textAlignment="center"
+            />
+
+        <Button
+            android:id="@+id/edit_text_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="입력"
+            android:layout_alignEnd="@+id/sample_edittext"
+            android:layout_centerInParent="true"
+            android:layout_alignTop="@+id/sample_edittext"
+            />
+
+    </LinearLayout>
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"

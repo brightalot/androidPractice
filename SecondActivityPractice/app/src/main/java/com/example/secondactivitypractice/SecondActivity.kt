@@ -15,9 +15,9 @@ class SecondActivity : AppCompatActivity() {
         binding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        // MainActivity에서 전달한 메시지를 받아와서 TextView에 표시
-//        val message = intent.getStringExtra("MESSAGE")
-//        binding.textView.text = message
+        // MainActivity에서 전달한 메시지를 받아와서 TextView에 표시
+        val message = intent.getStringExtra("message")
+        binding.userText.text = message
 
         binding.secondButton.setOnClickListener {
             // 버튼을 눌렀을 때 실행될 코드

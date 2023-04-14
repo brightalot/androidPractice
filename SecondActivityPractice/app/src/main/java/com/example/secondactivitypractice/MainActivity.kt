@@ -15,8 +15,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.editTextButton.setOnClickListener {
+            //메세지 변수로 넣기
+            val message = binding.sampleEdittext.text.toString()
+
+            //경로 잡기
+            val intent = Intent(this@MainActivity, SecondActivity::class.java)
+
+            //메시지를 putExtra에 넣기
+            intent.putExtra("message", message)
+            startActivity(intent)
+        }
         binding.button.setOnClickListener {
-            // 버튼을 눌렀을 때 실행될 코드
+            // second activity 로 그냥 이동
             val intent = Intent(this@MainActivity, SecondActivity::class.java)
             startActivity(intent)
         }
