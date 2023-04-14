@@ -9,8 +9,6 @@ import com.example.secondactivitypractice.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    //메시지를 저장할 변수 추가
-    private var message: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
