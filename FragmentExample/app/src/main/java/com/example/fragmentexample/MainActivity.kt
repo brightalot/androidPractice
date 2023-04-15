@@ -43,7 +43,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun showFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
+        supportFragmentManager
+            .beginTransaction()
             .replace(R.id.frame, fragment)
             .commit()
     }
