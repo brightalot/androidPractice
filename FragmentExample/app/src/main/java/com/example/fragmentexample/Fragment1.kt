@@ -5,16 +5,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.fragmentexample.databinding.Fragment1Binding
+import com.example.fragmentexample.databinding.Fragment3Binding
 
 class Fragment1 : Fragment() {
-
+    private lateinit var binding: Fragment1Binding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment1, container, false)
+        binding = Fragment1Binding.inflate(layoutInflater)
+        return binding.root
     }
 
 }
