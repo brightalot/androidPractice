@@ -22,11 +22,9 @@
         >
         <EditText
             android:id="@+id/sample_edittext"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/textView"
-
             android:ems="10"
             android:hint="아무거나 작성하세요"
             android:inputType="text"
