@@ -35,10 +35,7 @@ class MainActivity : AppCompatActivity() {
             //메시지를 putExtra에 넣기
             intent.putExtra("message", message)
             secondActivityLauncher.launch(intent)
-
         }
-
     }
-
 }
 
