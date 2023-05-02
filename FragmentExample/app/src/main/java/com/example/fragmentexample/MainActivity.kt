@@ -6,15 +6,12 @@ import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.fragment.app.Fragment
 import com.example.fragmentexample.databinding.ActivityMainBinding
 
-
-
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var fragment1: Fragment1
     private lateinit var fragment2: Fragment2
     private lateinit var fragment3: Fragment3
     private lateinit var fragment4: Fragment4
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

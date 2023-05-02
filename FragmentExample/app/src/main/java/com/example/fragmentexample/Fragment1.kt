@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.fragmentexample.databinding.Fragment1Binding
-import com.example.fragmentexample.databinding.Fragment3Binding
 
 class Fragment1 : Fragment() {
     private lateinit var binding: Fragment1Binding
