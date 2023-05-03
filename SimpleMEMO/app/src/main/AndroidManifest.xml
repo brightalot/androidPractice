@@ -12,6 +12,9 @@
         android:theme="@style/Theme.SimpleMEMO"
         tools:targetApi="31">
         <activity
+            android:name=".SavedMemosActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -19,7 +22,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
     </application>
 
 </manifest>
