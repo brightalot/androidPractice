@@ -7,6 +7,12 @@ import com.example.todolist.databinding.ItemTodoBinding
 
 class TodoAdapter(private val todos: List<Todo>): RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
 
+    fun clearAll() {
+        //한바퀴 돌면서 completed 를 true 로 변경해줌
+        todos.forEach { it.completed = !it.completed }
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int

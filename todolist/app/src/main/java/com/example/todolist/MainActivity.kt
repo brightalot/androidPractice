@@ -39,5 +39,9 @@ class MainActivity : AppCompatActivity() {
         //GridLayoutManager 를 사용해도 됨
         binding.todoList.adapter = TodoAdapter(todos)
 
+        binding.clearButton.setOnClickListener {
+            //adapter를 가져와서 형변환까지
+            (binding.todoList.adapter as? TodoAdapter)?.clearAll()
+        }
     }
 }
