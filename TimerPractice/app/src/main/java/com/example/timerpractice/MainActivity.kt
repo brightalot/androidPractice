@@ -3,6 +3,7 @@ package com.example.timerpractice
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.os.Message
 import com.example.timerpractice.databinding.ActivityMainBinding
 import kotlin.concurrent.thread
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     val SET_TIME = 51
     val RESET = 52
 
-    val handler = object: Handler() {
+    val handler = object: Handler(Looper.getMainLooper()) {
         override fun handleMessage(msg: Message) {
             when(msg.what) {
                 SET_TIME -> {
@@ -67,7 +68,9 @@ class MainActivity : AppCompatActivity() {
 
     fun stop() {
         started = false
-        binding.textTimer.text = "00 : 00"
+        val msg = Message()
+        msg.what = RESET
+        handler.sendMessage(msg)
 
     }
 
