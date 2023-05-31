@@ -7,6 +7,9 @@ android {
     namespace 'com.example.sharedpreferencespractice'
     compileSdk 33
 
+    viewBinding {
+        enabled true
+    }
     defaultConfig {
         applicationId "com.example.sharedpreferencespractice"
         minSdk 24
