@@ -3,8 +3,8 @@ package com.example.roompractice
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import androidx.room.Room
 import com.example.roompractice.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,21 +17,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val db = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java, "database-name"
-        ).build()
-
-        db.TodoDao().getAll().observe(this, Observer {todos ->
+        val viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel.getAll().observe(this, Observer { todos ->
             binding.resultText.text= todos.toString()
         })
 
 
         binding.addButton.setOnClickListener {
             lifecycleScope.launch(Dispatchers.IO) {
-                db.TodoDao().insertAll(Todo(binding.todoEdit.text.toString()))
+                viewModel.insert(Todo(binding.todoEdit.text.toString()))
             }
-
         }
     }
 }
