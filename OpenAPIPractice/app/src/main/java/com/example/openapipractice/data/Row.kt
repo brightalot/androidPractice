@@ -1,4 +1,4 @@
-package com.example.openapipractice
+package com.example.openapipractice.data
 
 data class Row(
     val ADRES: String,
