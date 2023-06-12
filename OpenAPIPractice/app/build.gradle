@@ -5,6 +5,11 @@ plugins {
 }
 
 android {
+
+    viewBinding {
+        enabled true
+    }
+
     namespace 'com.example.openapipractice'
     compileSdk 33
 
@@ -35,9 +40,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
-    }
-    buildFeatures {
-        viewBinding true
     }
 }
 
