@@ -1,10 +1,10 @@
-package com.example.openapipractice
+package com.example.openapipractice.activity
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.openapipractice.*
 import com.example.openapipractice.data.Library
-import com.example.openapipractice.data.SeoulPublicLibraryInfo
 import com.example.openapipractice.databinding.ActivityMapsBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -23,6 +23,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     //6e6b5a706b627269313134576e4d5157
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
+    private lateinit var libraryViewModel: LibraryViewModel
+//    private lateinit var libraryRepository: LibraryRepository
+    private lateinit var libraryDAO: LibraryDAO
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,24 +34,25 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+//        libraryViewModel = ViewModelProvider(this).get(LibraryViewModel::class.java)
+
+
+// Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-
         loadLibrary()
+//        showLibrary(LibraryViewModel.result)
 
-//        // Add a marker in Sydney and move the camera
-//        val sydney = LatLng(-34.0, 151.0)
-//        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
 
-    fun loadLibrary() {
+
+    private fun loadLibrary() {
         val retrofit = Retrofit.Builder()
             .baseUrl(SeoulOpenApi.DOMAIN)
             .addConverterFactory(GsonConverterFactory.create())
@@ -55,17 +60,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         val service = retrofit.create(SeoulOpenService::class.java)
 
-        service.getLibraries(SeoulOpenApi.API_KEY, 200)
+        service.getLibraries(key=SeoulOpenApi.API_KEY, end = 100, page = 10)
             .enqueue(object : Callback<Library> {
                 override fun onFailure(call: Call<Library>, t: Throwable) {
                     Toast.makeText(this@MapsActivity, "데이터를 가져올 수 없습니다.", Toast.LENGTH_LONG).show()
                 }
                 override fun onResponse(call: Call<Library>, response: Response<Library>) {
                     val result = response.body()
+//                    if (result != null) {
+//                        val libraryData = result.SeoulPublicLibraryInfo.row
+//                        libraryViewModel.insertLibraryData(libraryData)
+//                    }
                     showLibrary(result)
                 }
             })
     }
+
     fun showLibrary(result:Library?) {
 
         result.let{
@@ -84,5 +94,4 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             mMap.moveCamera(camera)
         }
     }
-
 }
